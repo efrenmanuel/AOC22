@@ -1,19 +1,13 @@
-def intArrFromString(sections):
-    return [int(s) for s in sections.split("-")]
-
-
-def intArrayArrayOfLine(line):
-    return [intArrFromString(sections) for sections in line.split(",")]
-
-
 def getLineSectionsContainOther(line):
-    arr = intArrayArrayOfLine(line)
+    arr = [[int(s) for s in sections.split("-")]
+           for sections in line.split(",")]
     return ((arr[0][0] <= arr[1][0] and arr[0][1] >= arr[1][1]) or
             (arr[1][0] <= arr[0][0] and arr[1][1] >= arr[0][1]))
 
 
 def getLineSectionsOverlap(line):
-    arr = intArrayArrayOfLine(line)
+    arr = [[int(s) for s in sections.split("-")]
+           for sections in line.split(",")]
     return (arr[1][0] <= arr[0][0] <= arr[1][1] or
             arr[1][0] <= arr[0][1] <= arr[1][1] or
             arr[0][0] <= arr[1][0] <= arr[0][1] or

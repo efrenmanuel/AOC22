@@ -17,17 +17,16 @@ def getLineSectionsOverlap(line):
     return len(sets[0] & sets[1]) > 0
 
 
-def p1():
-    with open("input1.txt", "r") as inputFile:
-        lines = inputFile.read().split()
-        return sum(map(getLineSectionsContainOther, lines))
+def p1(lines):
+    lines = inputFile.read().split()
+    return sum(map(getLineSectionsContainOther, lines))
 
 
-def p2():
-    with open("input1.txt", "r") as inputFile:
-        lines = inputFile.read().split()
-        return sum(map(getLineSectionsOverlap, lines))
+def p2(lines):
+    lines = inputFile.read().split()
+    return sum(map(getLineSectionsOverlap, lines))
 
-
-print(p1())
-print(p2())
+with open("input1.txt", "r") as inputFile:
+    lines = inputFile.read().split()
+    print(p1(lines))
+    print(p2(lines))
