@@ -3,30 +3,30 @@ def setFromString(sections):
     return set(range(delimiterSections[0], delimiterSections[1]+1))
 
 
-def makeSetArrayOfLine(line):
+def setArrayOfLine(line):
     return [setFromString(sections) for sections in line.split(",")]
 
 
-def getLineValue(line):
-    sets = makeSetArrayOfLine(line)
+def getLineSectionsContainOther(line):
+    sets = setArrayOfLine(line)
     return sets[0].issubset(sets[1]) + sets[1].issubset(sets[0])
 
 
-def getLineValue2(line):
-    sets = makeSetArrayOfLine(line)
+def getLineSectionsOverlap(line):
+    sets = setArrayOfLine(line)
     return len(sets[0] & sets[1]) > 0
 
 
 def p1():
     with open("input1.txt", "r") as inputFile:
         lines = inputFile.read().split()
-        return sum(map(getLineValue, lines))
+        return sum(map(getLineSectionsContainOther, lines))
 
 
 def p2():
     with open("input1.txt", "r") as inputFile:
         lines = inputFile.read().split()
-        return sum(map(getLineValue2, lines))
+        return sum(map(getLineSectionsOverlap, lines))
 
 
 print(p1())
