@@ -133,7 +133,6 @@ def p1():
         for line in lines:
             # print(line)
             interpret_line(line)
-        #print(root.pretty_print())
 
         '''for dir in root.get_sub_dirs_smaller_than(100000, True):
             print(dir.size)
@@ -161,3 +160,5 @@ d1.add_dir(d2)
 
 p1()
 p2()
+
+print(root.pretty_print())
